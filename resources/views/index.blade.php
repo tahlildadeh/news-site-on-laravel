@@ -1,7 +1,8 @@
 @extends('master')
 @section('item')
-<!-- 
-  end header -->
+
+dd($items)
+
   <section id="navArea">
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
@@ -352,7 +353,7 @@
               </div>
               <div role="tabpanel" class="tab-pane" id="video">
                 <div class="vide_area">
-                  <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+                  
                 </div>
               </div>
               <div role="tabpanel" class="tab-pane" id="comments">

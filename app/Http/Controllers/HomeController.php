@@ -25,7 +25,22 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $items = item::all();
 
-        return view('index');
+
+        return view('index', compact($items));
+
     }
+
+
+    public function news($id)
+    {
+
+
+     $items= item::find($id);
+
+     return view('news', compact($items));
+
+
+ }
 }

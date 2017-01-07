@@ -12,12 +12,4 @@
 */
 Route::get('/', 'HomeController@index');
 
-
-Route::auth();
-
-Route::any('test/mail/{to}/{subject}/{message?}', 'TestController@mail');
-
-
-Route::group(['prefix' => 'news', 'as', 'news::'], function(){
-   Route::get('/{id}/{title?}', ['as' => 'single', 'uses' => 'NewsController@show']);
-});
+ Route::get('/news/{id}','HomeController@news');
