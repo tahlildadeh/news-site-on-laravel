@@ -53,7 +53,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="index.html" class="logo"><img src="/images/logo.jpg" alt=""></a></div>
-          <div class="add_banner"><a href="#"><img src="/images/addbanner_728x90_V1.jpg" alt=""></a></div>
+          <div class="add_banner"><a href="#"><img src="http://www.psseo.ir/images/psseo.gif" alt=""></a></div>
         </div>
       </div>
     </div>

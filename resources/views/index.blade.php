@@ -1,7 +1,8 @@
 @extends('master')
 @section('item')
 
-dd($items)
+
+ 
 
   <section id="navArea">
     <nav class="navbar navbar-inverse" role="navigation">
@@ -51,6 +52,9 @@ dd($items)
       </div>
     </div>
   </section>
+
+
+
   
   <section id="contentSection">
     <div class="row">
@@ -70,26 +74,18 @@ dd($items)
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
-                <li>
+
+                @foreach ($items as $item)
+
+<li>
                   <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
                     <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
                   </div>
                 </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                  </div>
-                </li>
+
+@endforeach
+                
+              
               </ul>
             </div>
           </div>

@@ -25,10 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
+     
         $items = item::all();
-
-
-        return view('index', compact($items));
+        return view('index',compact('items'));
 
     }
 
