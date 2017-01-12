@@ -40,8 +40,6 @@ class HomeController extends Controller
 
      $items= item::find($id);
 
-     return view('news', compact($items));
-
-
+      return view('show',compact('items'));
  }
 }

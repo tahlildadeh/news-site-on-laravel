@@ -40,7 +40,7 @@
         <div class="header_top">
           <div class="header_top_left">
             <ul class="top_nav">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="pages/contact.html">Contact</a></li>
             </ul>
@@ -52,13 +52,29 @@
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
-          <div class="logo_area"><a href="index.html" class="logo"><img src="/images/logo.jpg" alt=""></a></div>
+          <div class="logo_area"><a href="/" class="logo"><img src="/images/logo.jpg" alt=""></a></div>
           <div class="add_banner"><a href="#"><img src="http://www.psseo.ir/images/psseo.gif" alt=""></a></div>
         </div>
       </div>
     </div>
   </header>
-
+ <section id="navArea">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav main_nav">
+          <li class="active"><a href="/"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
+          <li><a href="#">سیاسی</a></li>
+          
+          <li><a href="#">اجتماعی</a></li>
+          <li><a href="#">خانواده</a></li>
+          <li><a href="pages/contact.html">درباره ما</a></li>
+         </ul>
+      </div>
+    </nav>
+  </section>
     @yield('item')
  
  <footer id="footer">
