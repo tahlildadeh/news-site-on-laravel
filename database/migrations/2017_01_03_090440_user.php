@@ -15,8 +15,8 @@ class User extends Migration
       Schema::create('user', function (Blueprint $table) {
 
         $table->increments('id');
-        $table->char('name', 255);
-         $table->char('avator', 255);
+        $table->string('name', 255);
+         $table->string('avator', 255);
          $table->integer('goupbyuser');
     });
   }
