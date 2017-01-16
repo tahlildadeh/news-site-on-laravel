@@ -27,8 +27,9 @@ class HomeController extends Controller
     {
 
 
-     
-        $items = item::all();
+    $items= item::where('published', 1)->get();
+
+   
         return view('index',compact('items'));
 
     }
