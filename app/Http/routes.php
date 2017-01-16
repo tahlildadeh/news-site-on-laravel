@@ -12,4 +12,4 @@
 */
 Route::get('/', 'HomeController@index');
 
- Route::get('/news/{id}','HomeController@news');
+ Route::get('/news/{url}','HomeController@news');

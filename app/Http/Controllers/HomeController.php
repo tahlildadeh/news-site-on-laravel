@@ -26,11 +26,31 @@ class HomeController extends Controller
     public function index()
     {
 
+$itemsG1 = item::where('published', '1')
+    ->where('adminpublish', '1')
+        ->where('cat_id', '1')
+               ->take(4)
+               ->get();
 
-    $items= item::where('published', 1)->get();
+$itemsG2 = item::where('published', '1')
+    ->where('adminpublish', '1')
+        ->where('cat_id', '2')
+               ->take(4)
+               ->get();
 
-   
-        return view('index',compact('items'));
+ $top10 = item::where('published', '1')
+          ->where('adminpublish', '1')
+          ->take(10)
+          ->get();
+
+
+
+/*   die(var_dump($items));
+*/     
+/*   return view('index',compact('itemsG1'));
+*/
+
+  return view('index', compact('itemsG1', 'itemsG2', 'top10'));
 
     }
 
