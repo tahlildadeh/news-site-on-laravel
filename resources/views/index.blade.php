@@ -60,10 +60,9 @@
               <ul class="spost_nav">
 
                 @foreach ($items as $item)
-
-<li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title">{{$item->name}}</a> </div>
+ <li>
+                  <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
+                    <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
                   </div>
                 </li>
 
