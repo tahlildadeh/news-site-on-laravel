@@ -5,7 +5,8 @@ class app
     private static function registerAutoLoad()
     {
         spl_autoload_register(function($className){
-            $path = __DIR__ .'/src/' . str_replace('\\', '/', $className) . '.php';
+            $strToArr = explode('\\',$className);
+            $path = __DIR__ .'/' . $strToArr[1] .'/' . str_replace('\\', '/', $className) . '.php';
             if(file_exists($path)){
                 require_once($path);
             }else{
