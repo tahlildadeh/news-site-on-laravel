@@ -12,19 +12,16 @@ class Comment extends Migration
      */
     public function up()
     {
-              Schema::create('comment', function (Blueprint $table) {
+        Schema::create('comment', function (Blueprint $table) {
 
-        $table->increments('id');
-         $table->integer('item_id')->unsigned();
-           $table->text('text'); 
-          $table->integer('ip'); 
-        $table->integer('timestamp'); 
-        $table->integer('vote'); 
-
-
-
-            }
-
+            $table->increments('id');
+            $table->integer('item_id')->unsigned();
+            $table->text('text');
+            $table->integer('ip');
+            $table->integer('timestamp');
+            $table->integer('vote');
+        });
+    }
     /**
      * Reverse the migrations.
      *
