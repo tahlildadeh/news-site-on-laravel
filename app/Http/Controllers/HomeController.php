@@ -27,19 +27,19 @@ class HomeController extends Controller
     {
 
 $itemsG1 = item::where('published', '1')
-    ->where('adminpublish', '1')
+    ->where('admin_publish', '1')
         ->where('cat_id', '1')
                ->take(4)
                ->get();
 
 $itemsG2 = item::where('published', '1')
-    ->where('adminpublish', '1')
+    ->where('admin_publish', '1')
         ->where('cat_id', '2')
                ->take(4)
                ->get();
 
  $top10 = item::where('published', '1')
-          ->where('adminpublish', '1')
+          ->where('admin_publish', '1')
           ->take(10)
           ->get();
 
