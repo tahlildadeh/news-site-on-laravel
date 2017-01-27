@@ -12,6 +12,7 @@ class NewsController extends Controller
     public function show($id, $title=null)
     {
         $article = Item::with(['category'])->find($id);
+    
 
         return view('news.show')->with('article', $article);
     }

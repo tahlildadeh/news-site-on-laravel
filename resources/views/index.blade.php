@@ -9,7 +9,7 @@
           <ul id="ticker01" class="news_sticker">
 @foreach($top10 as $top10Value)
   
-            <li><a href="/news/{{$top10Value->id}}"><img src="/img/{{$top10Value->imgNews}}" alt="">{{$top10Value->name}}</a></li>
+            <li><a href="/news/{{$top10Value->id}}"><img src="/images/{{$top10Value->imgNews}}" alt="">{{$top10Value->name}}</a></li>
 
 
             @endforeach
@@ -55,7 +55,7 @@
 
                 @foreach ($itemsG1 as $item)
  <li>
-                  <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/img/{{$item->imgNews}}"> </a>
+                  <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
                     <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
                   </div>
                 </li>
@@ -81,7 +81,7 @@
                 <ul class="spost_nav">
                 @foreach ($itemsG2 as $item)
  <li>
-                  <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/img/{{$item->imgNews}}"> </a>
+                  <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
                     <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
                   </div>
                 </li>

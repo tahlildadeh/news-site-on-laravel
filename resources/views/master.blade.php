@@ -46,7 +46,9 @@
             </ul>
           </div>
           <div class="header_top_right">
-            <p>Friday, December 05, 2045</p>
+         
+            <p> <?php  echo date('Y-m-d H:i:s'); ?></p>
+          
           </div>
         </div>
       </div>

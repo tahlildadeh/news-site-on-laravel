@@ -68,13 +68,13 @@
               <li class="active">Mobile</li>
             </ol>
             <h1>{{$items->name}}</h1>
-            <div class="post_commentbox"> <a href="#"><i class="fa fa-user"></i>Wpfreeware</a> <span><i class="fa fa-calendar"></i>6:49 AM</span> <a href="#"><i class="fa fa-tags"></i>Technology</a> </div>
-            <div class="single_page_content"> <img class="img-center" src="/img/{{$items->id}}.jpg" alt="{{$items->name}}">
+            <div class="post_commentbox"> <a href="#"><i class="fa fa-user"></i>Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{date('y-m-d  h:i:s,$items->time_item')}}</span> <a href="#"><i class="fa fa-tags"></i>Technology</a> </div>
+            <div class="single_page_content"> <img class="img-center" src="/images/{{$items->id}}.jpg" alt="{{$items->name}}">
            
-              <blockquote> {{$items->introtext}} </blockquote>
+              <blockquote> {{$items->intro_text}} </blockquote>
             
            <div class="fulltext">
-{{$items->fulltext}} 
+{{$items->full_text}} 
            </div>
               
             </div>

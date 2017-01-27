@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\item;
 
+
 class HomeController extends Controller
 {
     /**
@@ -25,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+date_default_timezone_set('asia/tehran');
 
 $itemsG1 = item::where('published', '1')
     ->where('admin_publish', '1')
@@ -54,13 +56,16 @@ $itemsG2 = item::where('published', '1')
 
     }
 
-
-    public function news($id)
+  public function news($id)
     {
 
 
      $items= item::find($id);
+    $user_writer_query=$items->userWrite;
+         $userw= user::find($user_writer_query);
 
+ var_dump($userw);
+ die();
       return view('show',compact('items'));
  }
 }

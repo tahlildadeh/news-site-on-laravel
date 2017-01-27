@@ -23,6 +23,7 @@ class Item extends Migration
             $table->boolean('published')->default(false);
             $table->boolean('admin_publish')->default(false);
             $table->integer('userWrite');
+ 
             $table->integer('cat_id')->unsigned();
             $table->foreign('cat_id')->references('id')->on('cat');
             $table->string('meta_keyword', 255);
