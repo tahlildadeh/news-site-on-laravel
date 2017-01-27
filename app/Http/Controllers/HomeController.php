@@ -62,10 +62,7 @@ $itemsG2 = item::where('published', '1')
 
      $items= item::find($id);
     $user_writer_query=$items->userWrite;
-         $userw= user::find($user_writer_query);
-
- var_dump($userw);
- die();
+ 
       return view('show',compact('items'));
  }
 }
