@@ -2,67 +2,68 @@
 @section('item')
 
 
-  <section id="newsSection">
-    <div class="row">
-      <div class="col-lg-12 col-md-12">
-        <div class="latest_newsarea"> <span>اخرین اخبار</span>
-          <ul id="ticker01" class="news_sticker">
-@foreach($top10 as $top10Value)
-  
-            <li><a href="/news/{{$top10Value->id}}"><img src="/images/{{$top10Value->imgNews}}" alt="">{{$top10Value->name}}</a></li>
+<section id="newsSection">
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="latest_newsarea"> <span>اخرین اخبار</span>
+        <ul id="ticker01" class="news_sticker">
+          @foreach($top10 as $top10Value)
+
+          <li><a href="/news/{{$top10Value->id}}"><img src="/images/{{$top10Value->imgNews}}" alt="">{{$top10Value->name}}</a></li>
 
 
-            @endforeach
+          @endforeach
+        </ul>
+        <div class="social_area">
+          <ul class="social_nav">
+            <li class="facebook"><a href="#"></a></li>
+            <li class="twitter"><a href="#"></a></li>
+            <li class="flickr"><a href="#"></a></li>
+            <li class="pinterest"><a href="#"></a></li>
+            <li class="googleplus"><a href="#"></a></li>
+            <li class="vimeo"><a href="#"></a></li>
+            <li class="youtube"><a href="#"></a></li>
+            <li class="mail"><a href="#"></a></li>
           </ul>
-          <div class="social_area">
-            <ul class="social_nav">
-              <li class="facebook"><a href="#"></a></li>
-              <li class="twitter"><a href="#"></a></li>
-              <li class="flickr"><a href="#"></a></li>
-              <li class="pinterest"><a href="#"></a></li>
-              <li class="googleplus"><a href="#"></a></li>
-              <li class="vimeo"><a href="#"></a></li>
-              <li class="youtube"><a href="#"></a></li>
-              <li class="mail"><a href="#"></a></li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+ 
 
+<section id="contentSection">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="left_content">
+        <div class="single_post_content">
+          <h2><span>سیاسی</span></h2>
+          <div class="single_post_content_left">
+            <ul class="business_catgnav  wow fadeInDown">
+              <li>
+            <a href="/news/" class="featured_img"> <img alt="" src="/images/"> <span class="overlay"></span> </a>
+               <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> 
+                  <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+           
 
-  
-  <section id="contentSection">
-    <div class="row">
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="left_content">
-          <div class="single_post_content">
-            <h2><span>سیاسی</span></h2>
-            <div class="single_post_content_left">
-              <ul class="business_catgnav  wow fadeInDown">
-                <li>
-                  <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img1.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
-                  </figure>
-                </li>
-              </ul>
-            </div>
-            <div class="single_post_content_right">
-              <ul class="spost_nav">
+              </li>
+            </ul>
+          </div>
+          <div class="single_post_content_right">
+            <ul class="spost_nav">
 
-                @foreach ($itemsG1 as $item)
- <li>
-                  <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
-                    <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
+              @foreach ($itemsG1 as $item)
+              <li>
+                <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
+                  <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
+                  <span>{{date('y-m-d  h:i:s,$items->time_item')}}<span>
                   </div>
                 </li>
 
-@endforeach
-                
-              
+                @endforeach
+
+
               </ul>
             </div>
           </div>
@@ -79,14 +80,14 @@
                   </li>
                 </ul>
                 <ul class="spost_nav">
-                @foreach ($itemsG2 as $item)
- <li>
-                  <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
-                    <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
-                  </div>
-                </li>
+                  @foreach ($itemsG2 as $item)
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
+                      <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
+                    </div>
+                  </li>
 
-@endforeach
+                  @endforeach
 
 
                 </ul>
@@ -128,8 +129,8 @@
               </div>
             </div>
           </div>
-    
-         
+
+
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
@@ -179,7 +180,7 @@
               </div>
               <div role="tabpanel" class="tab-pane" id="video">
                 <div class="vide_area">
-                  
+
                 </div>
               </div>
               <div role="tabpanel" class="tab-pane" id="comments">
@@ -211,28 +212,28 @@
           <div class="single_sidebar wow fadeInDown">
             <h2><span>Sponsor</span></h2>
             <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt=""></a> </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Category Archive</span></h2>
-            <select class="catgArchive">
-              <option>Select Category</option>
-              <option>Life styles</option>
-              <option>Sports</option>
-              <option>Technology</option>
-              <option>Treads</option>
-            </select>
-          </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Links</span></h2>
-            <ul>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Rss Feed</a></li>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Life &amp; Style</a></li>
-            </ul>
-          </div>
-        </aside>
+            <div class="single_sidebar wow fadeInDown">
+              <h2><span>Category Archive</span></h2>
+              <select class="catgArchive">
+                <option>Select Category</option>
+                <option>Life styles</option>
+                <option>Sports</option>
+                <option>Technology</option>
+                <option>Treads</option>
+              </select>
+            </div>
+            <div class="single_sidebar wow fadeInDown">
+              <h2><span>Links</span></h2>
+              <ul>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Rss Feed</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Life &amp; Style</a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
       </div>
-    </div>
-  </section>
- 
- @Stop
+    </section>
+
+    @Stop

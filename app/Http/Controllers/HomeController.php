@@ -26,7 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-date_default_timezone_set('asia/tehran');
 
 $itemsG1 = item::where('published', '1')
     ->where('admin_publish', '1')
@@ -45,12 +44,15 @@ $itemsG2 = item::where('published', '1')
           ->take(10)
           ->get();
 
+var_dump($itemsG1);
+die();
+
+/*dd($itemsG1);*/
 
 
-/*   die(var_dump($items));
-*/     
-/*   return view('index',compact('itemsG1'));
-*/
+/*
+   die(var_dump($itemsG1));*/
+
 
   return view('index', compact('itemsG1', 'itemsG2', 'top10'));
 
