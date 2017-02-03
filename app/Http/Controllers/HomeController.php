@@ -30,31 +30,47 @@ class HomeController extends Controller
 $itemsG1 = item::where('published', '1')
     ->where('admin_publish', '1')
         ->where('cat_id', '1')
+        ->orderBy('id', 'DESC')
                ->take(4)
                ->get();
+
 
 $itemsG2 = item::where('published', '1')
     ->where('admin_publish', '1')
         ->where('cat_id', '2')
+        ->orderBy('id', 'DESC')
                ->take(4)
                ->get();
 
+
+ $itemsG3 = item::where('published', '1')
+    ->where('admin_publish', '1')
+        ->where('cat_id', '3')
+        ->orderBy('id', 'DESC')
+               ->take(4)
+               ->get();
+
+
  $top10 = item::where('published', '1')
           ->where('admin_publish', '1')
+          ->orderBy('id', 'DESC')
           ->take(10)
           ->get();
 
-var_dump($itemsG1);
-die();
+  $randnews = item::where('published', '1')
+          ->where('admin_publish', '1')
+          ->inRandomOrder()
+          ->take(10)
+          ->get();
 
 /*dd($itemsG1);*/
 
 
-/*
-   die(var_dump($itemsG1));*/
+ 
+/*   die(var_dump($randnews)); 
+*/
 
-
-  return view('index', compact('itemsG1', 'itemsG2', 'top10'));
+  return view('index', compact('itemsG1', 'itemsG2', 'itemsG3', 'top10' , 'randnews'));
 
     }
 
@@ -63,7 +79,7 @@ die();
 
 
      $items= item::find($id);
-    $user_writer_query=$items->userWrite;
+   
  
       return view('show',compact('items'));
  }

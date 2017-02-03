@@ -2,6 +2,7 @@
 @section('item')
 
 
+
 <section id="newsSection">
   <div class="row">
     <div class="col-lg-12 col-md-12">
@@ -42,9 +43,11 @@
           <div class="single_post_content_left">
             <ul class="business_catgnav  wow fadeInDown">
               <li>
-            <a href="/news/" class="featured_img"> <img alt="" src="/images/"> <span class="overlay"></span> </a>
-               <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> 
-                  <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+            <a href="/news/{{$itemsG1[0]['id']}}" class="featured_img"> <img width="300" style="display: block;" alt="{{$itemsG1[0]['name']}}" src="/images/{{$itemsG1[0]['id']}}.jpg"> <span class="overlay"></span> </a>
+               <a href="/news/{{$itemsG1[0]['id']}}">
+                {{$itemsG1[0]['name']}}
+               </a> 
+                 <p>{{$itemsG1[0]['intro_text']}}</p>
            
 
               </li>
@@ -53,15 +56,20 @@
           <div class="single_post_content_right">
             <ul class="spost_nav">
 
-              @foreach ($itemsG1 as $item)
+
+
+            @for ($i = 1; $i < 4; $i++)
               <li>
-                <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
-                  <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
-                  <span>{{date('y-m-d  h:i:s,$items->time_item')}}<span>
-                  </div>
+                <div class="media wow fadeInDown"> <a href="/news/{{$itemsG1[$i]['id']}}" class="media-left"> <img alt="" src="/images/{{$itemsG1[$i]['id']}}.jpg"> </a>
+                  <div class="media-body"> <a href="/news/{{$itemsG1[$i]['id']}}" class="catg_title">{{$itemsG1[$i]['name']}}</a> </div>
+<!--                   <span>{{date('y-m-d  h:i:s,$items->time_item')}}<span>
+ -->                  </div>
                 </li>
 
-                @endforeach
+                @endfor
+
+
+
 
 
               </ul>
@@ -70,24 +78,31 @@
           <div class="fashion_technology_area">
             <div class="fashion">
               <div class="single_post_content">
-                <h2><span>Fashion</span></h2>
+                <h2><span> ورزشی</span></h2>
                 <ul class="business_catgnav wow fadeInDown">
                   <li>
-                    <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img2.jpg"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
-                      <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+
+
+                    <figure class="bsbig_fig"> <a href="/news/{{$itemsG2[0]['id']}}" class="featured_img">
+                     <img alt="" src="/images/{{$itemsG2[0]['id']}}.jpg"> <span class="overlay"></span>
+                     </a>
+                      <figcaption> <a href="/news/{{$itemsG2[0]['id']}}">{{$itemsG2[0]['name']}}</a> </figcaption>
+                      <p>{{$itemsG2[0]['intro_text']}}</p>
                     </figure>
+
+
+
                   </li>
                 </ul>
                 <ul class="spost_nav">
-                  @foreach ($itemsG2 as $item)
+                  @for ($i = 1 ; $i< 4 ; $i++)
                   <li>
-                    <div class="media wow fadeInDown"> <a href="/news/{{$item->id}}" class="media-left"> <img alt="" src="/images/{{$item->imgNews}}"> </a>
-                      <div class="media-body"> <a href="/news/{{$item->id}}" class="catg_title">{{$item->name}}</a> </div>
+                    <div class="media wow fadeInDown"> <a href="/news/{{$itemsG2[$i]['id']}}" class="media-left"> <img alt="" src="/images/{{$itemsG2[$i]['id']}}.jpg"> </a>
+                      <div class="media-body"> <a href="/news/{{$itemsG2[$i]['id']}}" class="catg_title">{{$itemsG2[$i]['name']}}</a> </div>
                     </div>
                   </li>
 
-                  @endforeach
+                  @endfor
 
 
                 </ul>
@@ -97,34 +112,36 @@
               <div class="single_post_content">
                 <h2><span> اجتماعی</span></h2>
                 <ul class="business_catgnav">
+
+
                   <li>
-                    <figure class="bsbig_fig wow fadeInDown"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img3.jpg"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
-                      <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                    <figure class="bsbig_fig wow fadeInDown">
+                     <a href="/news/{{$itemsG3[0]['id']}}" class="featured_img">
+
+                     <img alt="" src="images/{{$itemsG3[0]['id']}}.jpg">
+
+                      <span class="overlay"></span> </a>
+                      <figcaption> <a href="/news/{{$itemsG3[0]['id']}}">{{$itemsG3[0]['name']}}</a> </figcaption>
+                      <p>{{$itemsG3[0]['intro_text']}}...</p>
                     </figure>
                   </li>
+
+
                 </ul>
+
+
+
                 <ul class="spost_nav">
+                    @for ($i = 1 ; $i< 4 ; $i++)
                   <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                    <div class="media wow fadeInDown"> <a href="/news/{{$itemsG3[$i]['id']}}" class="media-left"> <img alt="" src="/images/{{$itemsG3[$i]['id']}}.jpg"> </a>
+                      <div class="media-body"> <a href="/news/{{$itemsG3[$i]['id']}}" class="catg_title">{{$itemsG3[$i]['name']}}</a> </div>
                     </div>
                   </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                      <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                    </div>
-                  </li>
+
+                  @endfor
+                
+                
                 </ul>
               </div>
             </div>
@@ -136,28 +153,21 @@
       <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">
-            <h2><span>Popular Post</span></h2>
+            <h2><span>مطالب تصادفی</span></h2>
             <ul class="spost_nav">
+
+
+@foreach($randnews as $rand)
+
               <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                <div class="media wow fadeInDown"> <a href="/news/{{$rand->id}}" class="media-left"> 
+                <img alt="" src="images/{{$rand->id}}.jpg"> </a>
+                  <div class="media-body"> <a href="/news/{{$rand->id}}" class="catg_title">
+{{$rand->name}}
+                  </a> </div>
                 </div>
               </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
+              @endforeach
             </ul>
           </div>
           <div class="single_sidebar">
@@ -209,28 +219,8 @@
               </div>
             </div>
           </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Sponsor</span></h2>
-            <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt=""></a> </div>
-            <div class="single_sidebar wow fadeInDown">
-              <h2><span>Category Archive</span></h2>
-              <select class="catgArchive">
-                <option>Select Category</option>
-                <option>Life styles</option>
-                <option>Sports</option>
-                <option>Technology</option>
-                <option>Treads</option>
-              </select>
-            </div>
-            <div class="single_sidebar wow fadeInDown">
-              <h2><span>Links</span></h2>
-              <ul>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Rss Feed</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Life &amp; Style</a></li>
-              </ul>
-            </div>
+          
+            
           </aside>
         </div>
       </div>
