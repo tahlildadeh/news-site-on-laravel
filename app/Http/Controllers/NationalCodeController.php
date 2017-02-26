@@ -25,7 +25,7 @@ class NationalCodeController extends Controller
      */
     public function create()
     {
-        $url=route('nationalcode.create');
+        $url=route('nationalcode.store');
         return view('national',compact('url'));
     }
 
