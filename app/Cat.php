@@ -24,10 +24,12 @@ class Cat extends Model
         }
 
         // this part is only for display purpose remove it
+        /*
         $list = [
             1 => 'sports',
             2 => 'politics',
         ];
+        */
 
         return $list;
     }

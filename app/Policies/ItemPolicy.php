@@ -20,9 +20,25 @@ class ItemPolicy
         //
     }
 
-    public function create(User $user, Item $item)
+//    public function create(User $user, Item $item)
+//    {
+//        return $user->id === $item->userWrite;
+//    }
+
+    public function edit(User $user, Item $item)
     {
-        dd(__LINE__);
-        return $user->id === $post->user_id;
+        //dd($user->id, $item->userWrite);
+        return $user->id === $item->userWrite;
     }
+
+    public function update(User $user, Item $item)
+    {
+        return $this->edit($user, $item);
+    }
+    public function destroy(User $user, Item $item)
+    {
+        return $this->edit($user, $item);
+    }
+
+
 }

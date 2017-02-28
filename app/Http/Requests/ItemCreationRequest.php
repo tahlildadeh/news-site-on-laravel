@@ -24,7 +24,9 @@ class ItemCreationRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|email|max:255',
+            'title' => 'required|max:255',
+            'picture' => 'image|max:300',
+            'category' => 'required|integer|min:1',
         ];
     }
 }

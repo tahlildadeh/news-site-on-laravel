@@ -26,9 +26,36 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //die(trans('validation.accepted', ['attribute' => 'salam']));
+        $messageType=null;
+        $message=(session('status-message'));
+        if($message){
+            $temp = explode('@@@', $message);
+            $messageType= $temp[0];
+            $message= $temp[1];
+        }
+        $query = Item::with(['author', 'articleCategory'])->orderBy('id', 'DESC');
+        if($request->has('category')){
+            $query->where('cat_id', $request->category);
+            $selectedCategory = $request->category;
+        }else{
+            $selectedCategory = null;
+        }
+
+        if($request->has('q')){
+            $query->where('name', 'LIKE', '%' . $request->q . '%');
+            $q = $request->q;
+        }else{
+            $q = null;
+        }
+
+        $articles= $query->paginate(3);
+        // dd($articles->toArray());
+        return view(
+            'admin.news.index',
+            $this->appendViewData(compact('articles', 'selectedCategory', 'q', 'messageType', 'message'))
+        );
     }
 
     /**
@@ -51,7 +78,32 @@ class NewsController extends Controller
      */
     public function store(ItemCreationRequest $request)
     {
-        dd($request->all());
+        $cat = Cat::findOrFail($request->category);
+        $pictureName = null;
+        if($request->file('picture') && $request->file('picture')->isValid()){
+            $pictureName=$request->file('picture')->hashName();
+            $request->file('picture')->move(public_path('static/article'), $pictureName);
+        }
+
+        $data = [
+            'name' => $request->title,
+        ];
+
+        if($pictureName){
+            $data['imgNews'] = $pictureName;
+        }
+
+        // dd($data);
+        $item = new Item($data);
+        $item->author()->associate(\Auth::user());
+        $item->articleCategory()->associate($cat);
+        if($item->save()) {
+            $request->session()->flash('status-message', 'success@@@news added successfully (' . $item->name .')');
+            return redirect(route('admin.news.index'));
+        }
+
+        return back()->withInput()->withErrors(['custom' => 'could not save']);
+
     }
 
     /**
@@ -73,7 +125,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $item = /**Item::findOrFail($id); //*/json_decode(json_encode(['id' => $id, 'title' =>'dfgkjdkfgj dfgkjdfkjgd', 'category' => 2]));
+        $item = Item::with(['author', 'articleCategory'])->findOrFail($id);
+        $this->authorize($item);
         $url = route('admin.news.update', ['news' => $item->id]);
         return view('admin.news.edit', $this->appendViewData(compact('item', 'url')));
     }
@@ -87,7 +140,9 @@ class NewsController extends Controller
      */
     public function update(ItemCreationRequest $request, $id)
     {
-        //
+        $item = Item::findOrFail($id);
+        $this->authorize($item);
+        dd(__FILE__, __LINE__, $request->all());
     }
 
     /**
@@ -98,6 +153,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = item::findOrFail($id);
+        $this->authorize($item);
+        $item->delete();
+        return back();
     }
 }

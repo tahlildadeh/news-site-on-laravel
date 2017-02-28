@@ -1,4 +1,4 @@
-<?php $selectedCategory = old('category', isset($item)? $item->category: ''); ?>
+<?php $selectedCategory = old('category', isset($item)? $item->cat_id: ''); ?>
 @if (count($errors) > 0)
     <div class="alert alert-danger">
         <ul>
@@ -20,7 +20,11 @@
 </div>
 <div class="form-group">
     <label for="title">Title:</label>
-    <input type="text" name="title" value="{{ old('title', isset($item)? $item->title: '') }}" />
+    <input type="text" name="title" value="{{ old('title', isset($item)? $item->name: '') }}" />
+</div>
+<div class="form-group">
+    <label for="title">Picture:</label>
+    <input type="file" name="picture" />
 </div>
 <div class="form-group">
     <button type="submit">submit</button>

@@ -1,1 +1,1 @@
-@yield('content')
+@extends('layouts.app')
